@@ -3,13 +3,24 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from './users/users.module';
+import { OrderModule } from './order/order.module';
+import { CustomerModule } from './customer/customer.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal:true
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/3D')
+    MongooseModule.forRootAsync({
+
+      useFactory: () => ({
+       
+        uri: process.env.MONGO_URI, 
+      }),
+    }),
+    UsersModule,OrderModule,CustomerModule
+  
   ],
   controllers: [AppController],
   providers: [AppService],

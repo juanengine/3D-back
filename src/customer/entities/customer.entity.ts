@@ -3,8 +3,6 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 export class Customer {
 
     
-   
-    
         @Prop({required:true})
         nombre:string;
     

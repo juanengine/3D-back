@@ -5,7 +5,7 @@ export class Order {
    
     
         @Prop({required:true})
-        titulo:string;
+        IDOrder:string;
     
         @Prop({required:true})
         clienteId:string
@@ -17,7 +17,10 @@ export class Order {
         fechaAlta:Date
 
         @Prop()
-        fechaEntrega:Date
+        fechaPedido:Date
+
+        @Prop()
+        articulosCantidad:Date
 
         @Prop({enum:['pendiente', 'en proceso', 'entregado'], default:'pendiente'})
         estatus:string
