@@ -32,8 +32,8 @@ export class CustomerService {
     
   }
 
-  findAll() {
-    return `This action returns all customer`;
+  async findAll() {
+    return await this.customerModel.find({});
   }
 
   findOne(id: number) {
